@@ -59,29 +59,30 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
+  - alt-tab
+  - caffeine
+  - cyberduck
   - firefox
   - google-chrome
-  - caffeine
   - iterm2
   - joplin
   - karabiner-elements
-  - rar
-  - mqtt-explorer
-  - vlc
-  - visual-studio-code
-  - onedrive
-  - microsoft-word
   - microsoft-excel
   - microsoft-powerpoint
   - microsoft-teams
-  - skype
-  - whatsapp
-  - telegram
-  - cyberduck
+  - microsoft-word
+  - mqtt-explorer
   - obs
-  - alt-tab
-  - tunnelblick
+  - onedrive
+  - rar
+  - skype
+  - spotify
   - tailscale
+  - telegram
+  - tunnelblick
+  - visual-studio-code
+  - vlc
+  - whatsapp
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_email: "poplyra@gmail.com"
