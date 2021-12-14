@@ -74,6 +74,7 @@ homebrew_cask_apps:
   - microsoft-teams
   - microsoft-word
   - mqtt-explorer
+  - monitorcontrol
   - obs
   - onedrive
   - rar
