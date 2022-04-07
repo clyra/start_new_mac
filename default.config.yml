@@ -62,6 +62,7 @@ homebrew_taps:
   - homebrew/core
   - homebrew/cask
   - homebrew/cask-fonts
+  - homebrew/services
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
