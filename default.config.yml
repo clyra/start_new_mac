@@ -53,6 +53,9 @@ homebrew_installed_packages:
   - koekeishiya/formulae/skhd
   - yadm
   - tailscale
+  - fzf
+  - svn
+  - jq 
 
 
 homebrew_taps:
@@ -74,11 +77,9 @@ homebrew_cask_apps:
   - font-fira-mono-for-powerline
   - font-hack-nerd-font
   - font-meslo-lg-nerd-font
-  - fzf
   - google-chrome
   - iterm2
   - joplin
-  - jq
   - karabiner-elements
   - microsoft-excel
   - microsoft-powerpoint
