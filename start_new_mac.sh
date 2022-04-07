@@ -27,6 +27,7 @@ fi
 
 # instala ansible
 pyenv ansible
+pip install --upgrade pip
 pip3 install ansible
 
 # cria diretorio para guardar projetos git
