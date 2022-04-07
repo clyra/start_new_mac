@@ -7,6 +7,12 @@ echo "aguardando instalacao"
 
 read x
 
+echo "instalando o rosetta"
+echo "aguardando instalacao"
+sudo softwareupdate --install-rosetta
+
+read x
+
 pyenv() {
     ENV_NAME=$1
     VIRTUALENV_DIR=~/python
