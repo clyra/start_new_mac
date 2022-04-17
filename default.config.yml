@@ -41,6 +41,7 @@ dotfiles_files:
 homebrew_installed_packages:
   # - ansible # Installed via Pip.
   - bash-completion
+  - ffmpeg
   - nmap
   - ssh-copy-id
   - openssl
