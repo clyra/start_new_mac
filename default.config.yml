@@ -57,6 +57,7 @@ homebrew_installed_packages:
   - fzf
   - svn
   - jq 
+  - MisterTea/et/et
 
 
 homebrew_taps:
