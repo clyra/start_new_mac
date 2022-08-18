@@ -53,6 +53,7 @@ homebrew_installed_packages:
   - koekeishiya/formulae/yabai
   - koekeishiya/formulae/skhd
   - yadm
+  - rancher-cli
   - tailscale
   - fzf
   - svn
