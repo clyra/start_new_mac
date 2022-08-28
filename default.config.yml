@@ -59,6 +59,7 @@ homebrew_installed_packages:
   - svn
   - jq 
   - MisterTea/et/et
+  - tmuxp
 
 
 homebrew_taps:
