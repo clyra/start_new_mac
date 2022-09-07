@@ -61,7 +61,6 @@ homebrew_installed_packages:
   - MisterTea/et/et
   - tmuxp
 
-
 homebrew_taps:
   - homebrew/core
   - homebrew/cask
