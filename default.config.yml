@@ -86,6 +86,7 @@ homebrew_cask_apps:
   - iterm2
   - joplin
   - karabiner-elements
+  - maccy
   - microsoft-excel
   - microsoft-powerpoint
   - microsoft-teams
