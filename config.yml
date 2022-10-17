@@ -3,7 +3,7 @@ downloads: ~/.ansible-downloads/
 
 configure_dotfiles: false
 configure_terminal: false
-configure_osx: true
+configure_osx: false
 
 # Set to 'true' to configure the Dock via dockutil.
 configure_dock: true
@@ -78,9 +78,10 @@ homebrew_cask_apps:
   - discord
   - espanso
   - firefox
-  - font-fira-mono-for-powerline
-  - font-hack-nerd-font
-  - font-meslo-lg-nerd-font
+  #- font-fira-mono-for-powerline
+  #- font-hack-nerd-font
+  #- font-meslo-lg-nerd-font
+  - font-meslo-for-powerline
   - google-chrome
   - iterm2
   - joplin

@@ -1,19 +1,41 @@
 #!/bin/bash
 
-xcode-select --install
 
-echo "instale o xcode e depois digite <enter> para continuar"
-echo "aguardando instalacao"
+function check_install_xcode()
+{
+   chk_code=NOK
 
-read x
+   echo "Verificando se o Xcode esta instalado: "
 
-echo "instalando o rosetta"
-echo "aguardando instalacao"
-sudo softwareupdate --install-rosetta
+   gcc --version  && chk_code=OK
+   
+   if [ "$chk_code" == "NOK" ]
+   then
+      xcode-select --install
 
-read x
+      echo "instale o xcode e depois digite <enter> para continuar"
+      echo "aguardando instalacao"
 
-pyenv() {
+      read x
+   else
+      echo "xcode instalado, continuando..."
+   fi
+}
+
+function check_install_rosetta()
+{
+   # esse mac eh ARM?
+   arch=`uname -p`
+
+   if [ "$arch" == "arm" ]
+   then
+	echo "Esse eh um mac com arquitetura ARM, talvez seja necessario instalar o Rosetta"
+        sudo  softwareupdate --install-rosetta --agree-to-license
+   fi
+}
+
+function pyenv() {
+    cur_dir=`pwd`
     ENV_NAME=$1
     VIRTUALENV_DIR=~/python
     ENV_DIRNAME="$VIRTUALENV_DIR/$ENV_NAME"
@@ -22,45 +44,40 @@ pyenv() {
         python3 -m venv "$ENV_NAME"
     fi
     source $ENV_NAME/bin/activate
+    cd $cur_dir
 }
 
+function check_install_ansible()
+{
 
-# cria diretorio para guardar os venv python
-if [ ! -d ~/python ]
-then
-    mkdir python
-fi
+   # cria diretorio para guardar os venv python
+   if [ ! -d ~/python ]
+   then
+      mkdir ~/python
+   fi
 
-# instala ansible
-pyenv ansible
-pip install --upgrade pip
-pip3 install ansible
+   # instala ansible
+   pyenv ansible
+   pip install --upgrade pip
+   pip3 install ansible
+}
 
-# cria diretorio para guardar projetos git
-if [ ! -d ~/git ]
-then
-    mkdir ~/git
-fi
+function install_ansible_requirements()
+{
+   echo "Instalando dependencias do ansible"
+   ansible-galaxy install -r requirements.yml
+}
 
-# clona/atualiza git mac-dev
-cd ~/git
-if [ ! -d mac-dev-playbook ]
-then
-  git clone https://github.com/geerlingguy/mac-dev-playbook.git
-else
-  cd mac-dev-playbook
-  git pull
-fi
+# main (tipo...)
 
-cd ~/git/mac-dev-playbook
+check_install_xcode
+check_install_rosetta
+check_install_ansible
+echo $(pwd)
+install_ansible_requirements
 
-ansible-galaxy install -r requirements.yml
+exit
 
-if [ -f ~/default.config.yml ]
-then
-    echo "movendo arquivo default.config.yml para a receita"
-    mv ~/default.config.yml .
-fi
 
 ansible-playbook --ask-become-pass main.yml
 
