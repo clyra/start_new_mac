@@ -76,9 +76,6 @@ check_install_ansible
 echo $(pwd)
 install_ansible_requirements
 
-exit
-
-
 ansible-playbook --ask-become-pass main.yml
 
 echo "para rodar novamente, use ansible-playbook --ask-become-pass main.yml"
