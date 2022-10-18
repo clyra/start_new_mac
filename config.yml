@@ -5,7 +5,7 @@ downloads: ~/.ansible-downloads/
 configure_dock: true
 dockitems_remove:
  - Launchpad
- - Facetime
+ - FaceTime
  - Messages
  - Maps
  - Contacts
@@ -80,7 +80,7 @@ homebrew_cask_apps:
   - vlc
 
 # See `geerlingguy.mas` role documentation for usage instructions.
-mas_email: ""
+mas_email: "poplyra@gmail.com"
 mas_password: ""
 mas_installed_apps:
   - { id: 1352778147, name: "Bitwarden" }
@@ -88,4 +88,4 @@ mas_installed_apps:
   - { id: 747648890, name: "Telegram" }
   - { id: 1147396723, name: "Whatsapp" }
   - { id: 405399194, name: "Kindle" }  
-
+#mas_upgrade_all_apps: true
