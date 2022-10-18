@@ -1,12 +1,4 @@
 ---
-  - name: Make sure homebrew bin is in path
-    ansible.builtin.lineinfile:
-      path: /etc/paths
-      state: present
-      line: '/opt/homebrew/bin'
-    become: true
-    become_user: root
-
   - name: Install Oh My ZSH
     shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     args:
@@ -34,50 +26,3 @@
       dest:  "/Users/{{ lookup('env', 'USER') }}/.tmux.conf"
       state: link
 
-  #- name: Check if powerline fonts exists
-  #  ansible.builtin.stat:
-  #    path: "/Users/{{ lookup('env', 'USER') }}/Library/Fonts/MesloLGS NF Regular.ttf"
-  #  register: need_font
-
-  #- name: Download custom fonts for powerlevel
-  #  ansible.builtin.get_url:
-  #    url: "https://github.com/romkatv/powerlevel10k-media/raw/master/{{ item.url }}"
-  #    dest: "/Users/{{ lookup('env', 'USER') }}/Library/Fonts/{{ item.name }}.tmp"
-  #  loop:
-  #    - { 'name': 'MesloLGS NF Regular.ttf', 'url': 'MesloLGS%20NF%20Regular.ttf' }
-  #    - { 'name': 'MesloLGS NF Bold.ttf', 'url': 'MesloLGS%20NF%20Bold.ttf' }
-  #    - { 'name': 'MesloLGS NF Italic.ttf', 'url': 'MesloLGS%20NF%20Italic.ttf' } 
-  #    - { 'name': 'MesloLGS NF Bold Italic.ttf', 'url': 'MesloLGS%20NF%20Bold%20Italic.ttf' }
-  #  when: need_font.stat.isreg is not defined
-
-  #- name: mv downloaded fonts
-  #  command: mv "/Users/{{ lookup('env', 'USER') }}/Library/Fonts/{{ item }}.tmp" "/Users/{{ lookup('env', 'USER') }}/Library/Fonts/{{ item }}"
-  #  loop:
-  #    - 'MesloLGS NF Regular.ttf'
-  #    - 'MesloLGS NF Bold.ttf'
-  #    - 'MesloLGS NF Italic.ttf' 
-  #    - 'MesloLGS NF Bold Italic.ttf'
-  #  when: need_font.stat.isreg is not defined
-
-  #- name: Configure iterm for powerlevel
-  #  shell: >
-  #            /usr/libexec/PlistBuddy -c "Set :\"New Bookmarks\":0:\"{{ item.k }}\" {{ item.v }} "
-  #            /Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.googlecode.iterm2.plist ||
-  #            /usr/libexec/PlistBuddy -c "Add :\"New Bookmarks\":0:\"{{ item.k }}\" {{ item.t }} {{ item.v }} "
-  #            /Users/{{ lookup('env', 'USER') }}/Library/Preferences/com.googlecode.iterm2.plist
-  #            
-  #  loop:
-  #     - { 'k': 'Normal Font',                                 't': 'string', 'v': '\"MesloLGS-NF-Regular 13\"' }
-  #     - { 'k': 'Terminal Type',                               't': 'string', 'v': '\"xterm-256color\"' }
-  #     - { 'k': 'Horizontal Spacing',                          't': 'real', 'v': 1 }
-  #     - { 'k': 'Vertical Spacing',                            't': 'real', 'v': 1 }
-  #     - { 'k': 'Minimum Contrast',                            't': 'real', 'v': 0 }
-  #     - { 'k': 'Use Bold Font',                               't': 'bool', 'v': 1 }
-  #     - { 'k': 'Use Bright Bold',                             't': 'bool', 'v': 1 }
-  #     - { 'k': 'Use Italic Font',                             't': 'bool', 'v': 1 }
-  #     - { 'k': 'ASCII Anti Aliased',                          't': 'bool', 'v': 1 }
-  #     - { 'k': 'Non-ASCII Anti Aliased',                      't': 'bool', 'v': 1 }
-  #     - { 'k': 'Use Non-ASCII Font',                          't': 'bool', 'v': 0 }
-  #     - { 'k': 'Ambiguous Double Width',                      't': 'bool', 'v': 0 }
-  #     - { 'k': 'Draw Powerline Glyphs',                       't': 'bool', 'v': 1 }
-  #     - { 'k': 'Only The Default BG Color Uses Transparency', 't': 'bool', 'v': 1 }
