@@ -49,7 +49,7 @@ function pyenv() {
 
 function check_install_ansible()
 {
-
+   echo "criando ambiente python e instalando o ansible"
    # cria diretorio para guardar os venv python
    if [ ! -d ~/python ]
    then
@@ -68,14 +68,13 @@ function install_ansible_requirements()
    ansible-galaxy install -r requirements.yml
 }
 
-# main (tipo...)
-
+# main (tipo assim...)
 check_install_xcode
 check_install_rosetta
 check_install_ansible
-echo $(pwd)
 install_ansible_requirements
 
+echo "Executando o ansible"
 ansible-playbook --ask-become-pass main.yml
 
 echo "para rodar novamente, use ansible-playbook --ask-become-pass main.yml"

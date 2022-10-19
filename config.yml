@@ -37,7 +37,6 @@ homebrew_installed_packages:
   - fzf
   - svn
   - jq 
-  - MisterTea/et/et
   - tmuxp
 
 homebrew_taps:
@@ -70,6 +69,7 @@ homebrew_cask_apps:
   - monitorcontrol
   - numi
   - obs
+  - obsidian
   - onedrive
   - rar
   - skype
@@ -78,6 +78,7 @@ homebrew_cask_apps:
   - tunnelblick
   - visual-studio-code
   - vlc
+  - zotero
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_email: "poplyra@gmail.com"
