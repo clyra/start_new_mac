@@ -79,5 +79,5 @@ install_ansible_requirements
 ansible-playbook --ask-become-pass main.yml
 
 echo "para rodar novamente, use ansible-playbook --ask-become-pass main.yml"
-
+echo "mas antes carregue o ambiente do ansible com um source ~/python/ansible/bin/activate"
 
